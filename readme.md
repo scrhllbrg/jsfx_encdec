@@ -42,6 +42,13 @@ A utility JSFX pair that alter the input signal of your favourite plugins and re
 
 Place the `.jsfx` files in your JSFX effects folder according to your OS. Then restart Reaper.
 
+### Example locations
+
+```
+macOS: /Library/Application Support/REAPER/Effects/ (or your user library)
+Windows: C:\Users\YourName\AppData\Roaming\REAPER\Effects\
+```
+
 ## License
 
 MIT
