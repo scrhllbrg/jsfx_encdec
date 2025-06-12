@@ -19,7 +19,7 @@ A utility JSFX pair that alter the input signal of your favourite plugins and re
 ## Parameters
 
 | Control        | Function                         |
-|________________|__________________________________|
+|----------------|----------------------------------|
 | Global Gain    | Adjusts pre-input level          |
 | EQ Frequency   | 50 Hz – 5 kHz (or entered value) |
 | EQ Q           | 0.1 – 10 (narrow to wide)        |
