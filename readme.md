@@ -23,7 +23,7 @@ A utility JSFX pair that alter the input signal of your favourite plugins and re
 | Global Gain    | Adjusts pre-input level          |
 | EQ Frequency   | 50 Hz – 5 kHz (or entered value) |
 | EQ Q           | 0.1 – 10 (narrow to wide)        |
-| EQ Gain        | ±30 dB cut/boost                 |
+| EQ Cut/Boost   | ±30 dB cut/boost                 |
 
 ## Use cases
 
