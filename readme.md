@@ -12,8 +12,8 @@ A utility JSFX pair that alter the input signal to your preferred plugins and re
 
 ## Usage
 
-1. Insert `shoutshoutshout__enc_dec_pre.jsfx` before your plugin (e.g. compressor).
-2. Insert `shoutshoutshout__enc_dec_post.jsfx` after the same plugin.
+1. Insert **EncDec pre** `shoutshoutshout__enc_dec_pre.jsfx` before your plugin (e.g. compressor).
+2. Insert **EncDec post** `shoutshoutshout__enc_dec_post.jsfx` after the same plugin.
 3. Adjust gain and EQ in the **Pre** instance — the **Post** instance automatically mirrors the settings (inverted where relevant).
 
 ## Parameters
