@@ -1,0 +1,58 @@
+desc:EncDec post (StudioShoutShoutShout)
+
+//tags: gain and eq utility encode decode
+//author: Studio SSS
+//version: 1.0
+//changelog: Initial public release
+
+in_pin:left input
+in_pin:right input
+out_pin:left output
+out_pin:right output
+
+@init
+gmemidx = 200;
+
+@sample
+global_gain = -gmem[gmemidx];
+eq_freq = gmem[gmemidx+1];
+eq_q = gmem[gmemidx+2];
+eq_gain = -gmem[gmemidx+3];
+
+gain = 10^(global_gain / 20);
+spl0 *= gain;
+spl1 *= gain;
+
+// Compute biquad coeffs
+omega = 2 * $pi * eq_freq / srate;
+sn = sin(omega);
+cs = cos(omega);
+A = 10^(eq_gain / 40);
+alpha = sn / (2 * eq_q);
+
+b0 =   1 + alpha * A;
+b1 =  -2 * cs;
+b2 =   1 - alpha * A;
+a0 =   1 + alpha / A;
+a1 =  -2 * cs;
+a2 =   1 - alpha / A;
+
+coef0 = b0 / a0;
+coef1 = b1 / a0;
+coef2 = b2 / a0;
+coef3 = a1 / a0;
+coef4 = a2 / a0;
+
+// Left
+x0 = spl0;
+y0 = coef0 * x0 + coef1 * x1l + coef2 * x2l - coef3 * y1l - coef4 * y2l;
+x2l = x1l; x1l = x0;
+y2l = y1l; y1l = y0;
+spl0 = y0;
+
+// Right
+x0 = spl1;
+y0 = coef0 * x0 + coef1 * x1r + coef2 * x2r - coef3 * y1r - coef4 * y2r;
+x2r = x1r; x1r = x0;
+y2r = y1r; y1r = y0;
+spl1 = y0;

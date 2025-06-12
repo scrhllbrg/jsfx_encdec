@@ -1,0 +1,67 @@
+desc: EncDec pre (StudioShoutShoutShout)
+
+//tags: gain and eq utility encode decode
+//author: Studio SSS
+//version: 1.0
+//changelog: Initial public release
+
+slider1:0<-30,30,1>Global Gain (dB)
+slider2:1000<50,5000,1>EQ Frequency (Hz)
+slider3:1<0.1,10,0.1>EQ Q
+slider4:0<-30,30,0.1>EQ Cut/Boost (dB)
+
+in_pin:left input
+in_pin:right input
+out_pin:left output
+out_pin:right output
+
+@init
+gmemidx = 200;
+
+@slider
+global_gain = 10^(slider1 / 20);
+eq_gain = slider4;
+gmem[gmemidx] = slider1;
+gmem[gmemidx+1] = slider2;
+gmem[gmemidx+2] = slider3;
+gmem[gmemidx+3] = eq_gain;
+
+// Biquad coeffs for EQ (peak filter)
+omega = 2 * $pi * slider2 / srate;
+sn = sin(omega);
+cs = cos(omega);
+A = 10^(eq_gain / 40);
+alpha = sn / (2 * slider3);
+
+b0 =   1 + alpha * A;
+b1 =  -2 * cs;
+b2 =   1 - alpha * A;
+a0 =   1 + alpha / A;
+a1 =  -2 * cs;
+a2 =   1 - alpha / A;
+
+coef0 = b0 / a0;
+coef1 = b1 / a0;
+coef2 = b2 / a0;
+coef3 = a1 / a0;
+coef4 = a2 / a0;
+
+@sample
+// Apply gain and EQ
+spl0 *= global_gain;
+spl1 *= global_gain;
+
+// Left
+x0 = spl0;
+y0 = coef0 * x0 + coef1 * x1l + coef2 * x2l - coef3 * y1l - coef4 * y2l;
+x2l = x1l; x1l = x0;
+y2l = y1l; y1l = y0;
+spl0 = y0;
+
+// Right
+x0 = spl1;
+y0 = coef0 * x0 + coef1 * x1r + coef2 * x2r - coef3 * y1r - coef4 * y2r;
+x2r = x1r; x1r = x0;
+y2r = y1r; y1r = y0;
+spl1 = y0;
+
