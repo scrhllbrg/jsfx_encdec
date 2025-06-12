@@ -36,6 +36,9 @@ A utility JSFX pair that alter the input signal of your favourite plugins and re
 - **Adds threshold with auto(ish) gain**  
  When a compressor lacks control over the threshold this can be used as a rudimentary control. Without affecting the output signal in a way that a simple trim plugin would. Or if the compressor lacks the headroom of your preferred gain staging.
  
+ - **Deesser**  
+  Could probably be used a (probably at most interesting) deesser. In case your favourite compressor lacks a sidechain.
+ 
 <img src="assets/encdec.svg" alt="EncDec Signal Flow" width="600"/>
 
 ## Installation
