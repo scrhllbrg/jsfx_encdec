@@ -1,4 +1,5 @@
-# EncDec Pre/Post EQ and Gain Utility (StudioShoutShoutShout, JSFX)
+# EncDec 
+ ## Pre/Post EQ and Gain Utility (StudioShoutShoutShout, JSFX)
 
 A utility JSFX pair that alter the input signal of your favourite plugins and resets it on the way out. Designed for encode/decode-style processing chains, particularly suited for creative compression, transient shaping, and frequency-specific control. Using transparent pre/post EQ and gain trimming with shared `gmem` synchronization. No rocket science, just a bit more convenience. 
 
