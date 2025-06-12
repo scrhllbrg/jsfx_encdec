@@ -43,8 +43,12 @@ If used on multiple instances you need to set different `Instance ID` for each p
  
  - **De-esser**  
   Could probably be used as a (probably at most interesting) de-esser. In case your favourite compressor lacks a sidechain. 
+  
+## Routing example encode/decode
  
 <img src="assets/encdec.svg" alt="EncDec Signal Flow" width="1000"/>
+
+You need to match Instance ID between **EncDec pre** and **EncDec post** if using multiple sets of the plugin. Defaults to 1.
 
 ## Installation
 
