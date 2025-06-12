@@ -1,7 +1,7 @@
 # EncDec 
  ## Pre/Post EQ and Gain Utility (StudioShoutShoutShout, JSFX)
 
-A utility JSFX pair that alter the input signal of your favourite plugins and restores it on the way out. Designed for encode/decode-style processing chains, particularly suited for creative compression, transient shaping, and frequency-specific control. Using transparent pre/post EQ and gain trimming with shared `gmem` synchronization. No rocket science, just a bit more convenience. 
+A utility JSFX pair that alter the input signal to your preferred plugins and restores it on the way out. Designed for encode/decode-style processing chains, suited for creative compression, transient shaping, and frequency-specific control. Using transparent pre/post EQ and gain trimming with shared `gmem` synchronization. No rocket science, just a bit more convenience. 
 
 ## Features
 
@@ -21,9 +21,10 @@ A utility JSFX pair that alter the input signal of your favourite plugins and re
 | Control        | Function                         |
 |----------------|----------------------------------|
 | Global Gain    | Adjusts pre-input level          |
-| EQ Frequency   | 50 Hz – 5 kHz (or entered value) |
+| EQ Frequency   | 50 Hz – 5 kHz                    |
 | EQ Q           | 0.1 – 10 (narrow to wide)        |
 | EQ Cut/Boost   | ±30 dB cut/boost                 |
+| Bypass         | Bypass both instances            |
 
 ## Use cases
 
@@ -36,8 +37,8 @@ A utility JSFX pair that alter the input signal of your favourite plugins and re
 - **Adds threshold with auto(ish) gain**  
  When a compressor lacks control over the threshold this can be used as a rudimentary control. Without affecting the output signal in a way that a simple trim plugin would. Or if the compressor lacks the headroom of your preferred gain staging.
  
- - **Deesser**  
-  Could probably be used a (probably at most interesting) deesser. In case your favourite compressor lacks a sidechain.
+ - **De-esser**  
+  Could probably be used as a (probably at most interesting) de-esser. In case your favourite compressor lacks a sidechain. 
  
 <img src="assets/encdec.svg" alt="EncDec Signal Flow" width="600"/>
 

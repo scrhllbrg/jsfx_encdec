@@ -14,10 +14,13 @@ out_pin:right output
 gmemidx = 200;
 
 @sample
+spl0_orig = spl0;
+spl1_orig = spl1;
 global_gain = -gmem[gmemidx];
 eq_freq = gmem[gmemidx+1];
 eq_q = gmem[gmemidx+2];
 eq_gain = -gmem[gmemidx+3];
+bypass = gmem[gmemidx+4];
 
 gain = 10^(global_gain / 20);
 spl0 *= gain;
@@ -56,3 +59,8 @@ y0 = coef0 * x0 + coef1 * x1r + coef2 * x2r - coef3 * y1r - coef4 * y2r;
 x2r = x1r; x1r = x0;
 y2r = y1r; y1r = y0;
 spl1 = y0;
+
+bypass ? (
+  spl0 = spl0_orig;
+  spl1 = spl1_orig;
+);

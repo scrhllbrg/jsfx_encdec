@@ -9,6 +9,7 @@ slider1:0<-30,30,1>Global Gain (dB)
 slider2:1000<50,5000,1>EQ Frequency (Hz)
 slider3:1<0.1,10,0.1>EQ Q
 slider4:0<-30,30,0.1>EQ Cut/Boost (dB)
+slider5:0<0,1,1{Active,Bypass}>Bypass post and pre
 
 in_pin:left input
 in_pin:right input
@@ -21,10 +22,13 @@ gmemidx = 200;
 @slider
 global_gain = 10^(slider1 / 20);
 eq_gain = slider4;
+gmem[gmemidx+3] = eq_gain;
+bypass = slider5;
 gmem[gmemidx] = slider1;
 gmem[gmemidx+1] = slider2;
 gmem[gmemidx+2] = slider3;
-gmem[gmemidx+3] = eq_gain;
+gmem[gmemidx+4] = bypass;
+
 
 // Biquad coeffs for EQ (peak filter)
 omega = 2 * $pi * slider2 / srate;
@@ -47,6 +51,9 @@ coef3 = a1 / a0;
 coef4 = a2 / a0;
 
 @sample
+spl0_orig = spl0;
+spl1_orig = spl1;
+
 // Apply gain and EQ
 spl0 *= global_gain;
 spl1 *= global_gain;
@@ -64,4 +71,9 @@ y0 = coef0 * x0 + coef1 * x1r + coef2 * x2r - coef3 * y1r - coef4 * y2r;
 x2r = x1r; x1r = x0;
 y2r = y1r; y1r = y0;
 spl1 = y0;
+
+bypass ? (
+  spl0 = spl0_orig;
+  spl1 = spl1_orig;
+);
 
