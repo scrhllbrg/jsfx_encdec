@@ -28,6 +28,7 @@ If used on multiple instances you need to set different `Instance ID` for each p
 | EQ Q           | 0.1 – 10 (narrow to wide)        |
 | EQ Cut/Boost   | ±30 dB cut/boost                 |
 | Bypass         | Bypass both instances            |
+| Instance ID    | Pair post and pre                |
 
 ## Use cases
 
