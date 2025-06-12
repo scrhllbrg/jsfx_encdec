@@ -32,6 +32,9 @@ A utility JSFX pair that alter the input signal of your favourite plugins and re
 
 - **Controlling a kick in stereo drum bus**  
   When the kick drum feels too dominant or flappy or whatever, insert your favourite compressor between the **Pre** and **Post** instances. Use the Pre-EQ to boost a low frequency (e.g. 50–80 Hz) that aligns with the kick's fundamental. This causes the compressor to respond more aggressively to kick hits — tightening the low end without EQing the final output.
+  
+- **Adds threshold with auto(ish) gain**  
+ When a compressor lacks control over the threshold this can be used as a rudimentary control. Without affecting the output signal in a way that a simple trim plugin would. Or if the compressor lacks the headroom of your preferred gain staging.
 
 ## Installation
 
