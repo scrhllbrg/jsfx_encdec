@@ -16,6 +16,9 @@ A utility JSFX pair that alter the input signal to your preferred plugins and re
 2. Insert **EncDec post** `shoutshoutshout__enc_dec_post.jsfx` after the same plugin.
 3. Adjust gain and EQ in the **Pre** instance — the **Post** instance automatically mirrors the settings (inverted where relevant).
 
+## Caveat
+If used on multiple instances you need to set different `Instance ID` for each pair to make sure the paired parameters reflect the correct settings. You need to restart playback when changing `Instance ID`.
+
 ## Parameters
 
 | Control        | Function                         |

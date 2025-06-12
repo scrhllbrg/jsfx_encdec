@@ -10,6 +10,7 @@ slider2:1000<50,5000,1>EQ Frequency (Hz)
 slider3:1<0.1,10,0.1>EQ Q
 slider4:0<-30,30,0.1>EQ Cut/Boost (dB)
 slider5:0<0,1,1{Active,Bypass}>Bypass post and pre
+slider6:1<1,64,1>Instance ID
 
 in_pin:left input
 in_pin:right input
@@ -17,7 +18,8 @@ out_pin:left output
 out_pin:right output
 
 @init
-gmemidx = 200;
+gmem_base = 200 + 5 * slider6;
+gmemidx = gmem_base;
 
 @slider
 global_gain = 10^(slider1 / 20);

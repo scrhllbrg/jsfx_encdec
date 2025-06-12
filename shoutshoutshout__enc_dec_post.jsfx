@@ -5,13 +5,16 @@ desc:EncDec post (StudioShoutShoutShout)
 //version: 1.0
 //changelog: Initial public release
 
+slider1:1<1,64,1>Instance ID
+
 in_pin:left input
 in_pin:right input
 out_pin:left output
 out_pin:right output
 
 @init
-gmemidx = 200;
+gmem_base = 200 + 5 * slider1;
+gmemidx = gmem_base;
 
 @sample
 spl0_orig = spl0;
