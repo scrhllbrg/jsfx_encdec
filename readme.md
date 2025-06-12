@@ -35,11 +35,22 @@ A utility JSFX pair that alter the input signal of your favourite plugins and re
   
 - **Adds threshold with auto(ish) gain**  
  When a compressor lacks control over the threshold this can be used as a rudimentary control. Without affecting the output signal in a way that a simple trim plugin would. Or if the compressor lacks the headroom of your preferred gain staging.
+ 
+       ┌────────────┐      ┌──────────────┐     ┌─────────────┐
+ Input │ EncDec Pre │─────▶ Your Plugin   ─────▶  EncDec Post │ Output
+       │ Gain+EQ    │      │ (Comp, Dist) │     │ (Inversion) │
+       └────────────┘      └──────────────┘     └─────────────┘
+                │                                      ▲
+                │ Shared parameters via gmem           │
+                └──────────────────────────────────────┘
+
 
 ## Installation
 
-Place the `.jsfx` files in your JSFX effects folder. Then restart Reaper.
+Place the `.jsfx` files in your JSFX effects folder according to your OS. Then restart Reaper.
 
 ## License
 
 MIT
+
+Learn more about JSFX: https://www.reaper.fm/sdk/js/js.php
