@@ -7,3 +7,4 @@ jsfx
 stereo
 production-tools
 studio-shout-shout-shout
+reaper
