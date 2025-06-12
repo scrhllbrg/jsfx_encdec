@@ -40,7 +40,7 @@ A utility JSFX pair that alter the input signal to your preferred plugins and re
  - **De-esser**  
   Could probably be used as a (probably at most interesting) de-esser. In case your favourite compressor lacks a sidechain. 
  
-<img src="assets/encdec.svg" alt="EncDec Signal Flow" width="600"/>
+<img src="assets/encdec.svg" alt="EncDec Signal Flow" width="1000"/>
 
 ## Installation
 
